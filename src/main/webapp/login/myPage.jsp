@@ -53,7 +53,7 @@
          </form>
          
          
-        <!--  <button type="button" id="updatePwBtn" class="baseBtn">비밀번호수정</button><br><br><br>   
+        <!--  <button type="button" id="updatePwBtn" class="baseBtn"dd>비밀번호수정</button><br><br><br>   
          <button type="button" id="deleteMemberBtn" class="baseBtn">회원탈퇴</button>
          <div class = "deletConfirm">
 	         <input type="text" id="deleteMember" placeholder="비밀번호 재입력" required /><br> 
