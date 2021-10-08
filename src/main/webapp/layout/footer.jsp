@@ -3,21 +3,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8 ">
+<meta charset="UTF-8">
 <title>Insert title here</title>
-
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400&display=swap" rel="stylesheet">
 </head>
 <body>
-<footer class="ftco-footer">
+
+<footer class="ftco-footer" style="font-family: 'Noto Sans KR', sans-serif;">
 		<div class="container">
 			<div class="row mb-5">
 				<div class="col-sm-12 col-md">
 					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2 logo">
-							<a href="#">Liquor <span>Store</span></a>
+						<ul class="list-unstyled">
+						<h2 class="ftco-heading-2 logo" style=" font-size:18pt;">
+							<li><a href="#">온라인견적</a></li>
+							<li><a href="#">구매상담신청</a></li>
+							<li><a href="#">이달의 구매혜택</a></li>
+							<li><a href="#">시승 예약</a></li>
+							<li><a href="#">카탈로그/가격표</a></li>
+							<li><a href="#">영업망 안내</a></li>
+							<li><a href="#">기아렌터카</a></li>
+							<li><a href="#">모델비교</a></li>
+							<li><a href="#">진행중인 이벤트</a></li>
+							<li><a href="#">고객센터</a></li>
+							<li><a href="#">사이트맵</a></li>
 						</h2>
-						<p>Far far away, behind the word mountains, far from the
-							countries.</p>
+						</ul>
 						<ul class="ftco-footer-social list-unstyled mt-2">
 							<li class="ftco-animate"><a href="#"><span
 									class="fa fa-twitter"></span></a></li>
@@ -30,54 +41,56 @@
 				</div>
 				<div class="col-sm-12 col-md">
 					<div class="ftco-footer-widget mb-4 ml-md-4">
-						<h2 class="ftco-heading-2">My Accounts</h2>
+						<h2 class="ftco-heading-2">Ev</h2>
 						<ul class="list-unstyled">
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>My
-									Account</a></li>
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Register</a></li>
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Log
-									In</a></li>
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>My
-									Order</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>ev6</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>니로 EV</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>봉고Ⅲ EV </a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>탑차 EV</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>성력 EV</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-sm-12 col-md">
 					<div class="ftco-footer-widget mb-4 ml-md-4">
-						<h2 class="ftco-heading-2">Information</h2>
+						<h2 class="ftco-heading-2">승용</h2>
 						<ul class="list-unstyled">
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>About
-									us</a></li>
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Catalog</a></li>
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Contact
-									us</a></li>
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Term
-									&amp; Conditions</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>모닝</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>레이</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>K3</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>k5/a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>k5 HEV</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>스팅어</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>K8</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>K8 HEV</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>K9</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-sm-12 col-md">
 					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2">Quick Link</h2>
+						<h2 class="ftco-heading-2">RV</h2>
 						<ul class="list-unstyled">
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>New
-									User</a></li>
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Help
-									Center</a></li>
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Report
-									Spam</a></li>
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Faq's</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>니로 HEV</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>니로 PHEV</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>셀토스</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>스포티지</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>스포티지 HEV</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>쏘렌토</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>쏘렌토 HEV</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>모하비</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>카니발</a></li>
+							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>카니발 하이리무진</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-sm-12 col-md">
 					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2">Have a Questions?</h2>
 						<div class="block-23 mb-3">
 							<ul>
 								<li><span class="icon fa fa-map marker"></span><span
-									class="text">203 Fake St. Mountain View, San Francisco,
-										California, USA</span></li>
+									class="text">사업자 케이카㈜ 대표 김병철, 황상훈 사업자등록번호 
+									129-31-02216 06577 서울특별시 서초구 헌릉로 12 (양재동)</span></li>
 								<li><a href="#"><span class="icon fa fa-phone"></span><span
 										class="text">+2 392 3929 210</span></a></li>
 								<li><a href="#"><span
@@ -110,15 +123,5 @@
 		</div>
 	</footer>
 
-
-
-	<!-- loader -->
-	<div id="ftco-loader" class="show fullscreen">
-		<svg class="circular" width="48px" height="48px">
-			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
-				stroke-width="4" stroke="#eeeeee" />
-			<circle class="path" cx="24" cy="24" r="22" fill="none"
-				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
-	</div>
 </body>
 </html>
