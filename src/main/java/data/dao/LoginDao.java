@@ -171,6 +171,37 @@ public class LoginDao {
 	//UPDATE
 	
 	//비밀번호변경
+	public boolean updateMember(String postcode, String addr1, String addr2, String mobile1, String mobile2, String mobile3,String name, String email ) {
+		boolean check = false;
+		Connection conn = db.getConnection();
+		PreparedStatement ps = null;
+		String sql = "update usertest set postcode = ?, addr1 = ?, addr2 = ?, mobile1 = ?, mobile2 = ?, mobile3 = ?, name = ?  where email = ?";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, postcode);
+			ps.setString(2, addr1);
+			ps.setString(3, addr2);
+			ps.setString(4, mobile1);
+			ps.setString(5, mobile2);
+			ps.setString(6, mobile3);
+			ps.setString(7, name);
+			ps.setString(8, email);
+			int num = ps.executeUpdate();
+			if(num != 0) {
+				check = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.dbClose(ps, conn);
+		}
+		
+		return check;
+		
+	}
+	
+	//비밀번호변경
 	public boolean updatePw(String email, String pw) {
 		boolean check = false;
 		Connection conn = db.getConnection();
@@ -208,6 +239,7 @@ public class LoginDao {
 		
 		try {
 			ps = conn.prepareStatement(sql);
+			ps.setString(1, email);
 			num = ps.executeUpdate();
 			if(num!=0) {
 				check = true;

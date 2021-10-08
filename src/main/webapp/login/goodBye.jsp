@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8 ">
-<title>가입인사</title>
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <link rel="stylesheet" href="css/login.css">
 <style type="text/css">
 #newMember{
@@ -29,7 +30,7 @@
 <body>
 	<div class = "inner">
 		<div class = "newMemberForm">
-			<span id = "newMember">회원가입을 환영합니다</span><br>
+			<span id = "newMember">그동안 감사했습니다</span><br>
 			<div class = "btnGroup">
 				<button type = "button" class="baseBtn" id = "loginloc" onclick = "location.href = 'index.jsp?main=login/loginMain.jsp'">로그인</button>
 				<button type = "button" class="baseBtn" id = "mainloc" onclick = "location.href = 'index.jsp?main=layout/main.jsp'">메인페이지</button>

@@ -59,7 +59,6 @@
 	$("#btnuse").click(function() {
 		//아이디얻기
 		var myName = $(this).attr("myName");
-		alert(myName)
 		//부모창에 아이디 보내기
 		opener.myPage.name.value = myName;
 		//현재창 닫기

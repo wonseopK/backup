@@ -11,7 +11,7 @@
   <!-- <link rel="stylesheet" href="css/login.css"> -->
   <title>통합가입페이지</title>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-  
+  <link rel="stylesheet" href="css/login.css">
 </head>
 <%
 	

@@ -10,6 +10,7 @@
 	LoginDao dao = new LoginDao();
 	boolean emailConfirm = dao.userInfoCheck(2, email);
 	String pwConfirm = dao.getPw(email);
+	System.out.println(pwConfirm);
 	
 	//아이디와 비번이 맞으면 3개의 세션을 저장하고
 	//로그인메인으로 이동
@@ -21,7 +22,7 @@
 			session.setAttribute("myid", email);
 			//로그인 메인으로 이동
 			System.out.println("이동");
-			response.sendRedirect("../index.jsp");
+			response.sendRedirect("../index.jsp?main=layout/main.jsp");
 		}else{
 	/* 	System.out.println("노비밀번호"); */
 		%>

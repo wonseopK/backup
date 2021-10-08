@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8 ">
-<title>가입인사</title>
+<title>회원정보수정</title>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <link rel="stylesheet" href="css/login.css">
 <style type="text/css">
 #newMember{
@@ -12,7 +13,7 @@
 }
 .newMemberForm{
 	padding-top: 50px;
-	padding-left: 300px;
+	padding-left: 200px;
 	postition:absolute;
 	width: 1000px;
 	height:120px;
@@ -20,7 +21,7 @@
 	margin-right: -500px;
 }
 .btnGroup{
-	padding-left: 50px;
+	padding-left: 120px;
 }
 
 
@@ -29,7 +30,7 @@
 <body>
 	<div class = "inner">
 		<div class = "newMemberForm">
-			<span id = "newMember">회원가입을 환영합니다</span><br>
+			<span id = "newMember">회원정보를 수정하였습니다</span><br>
 			<div class = "btnGroup">
 				<button type = "button" class="baseBtn" id = "loginloc" onclick = "location.href = 'index.jsp?main=login/loginMain.jsp'">로그인</button>
 				<button type = "button" class="baseBtn" id = "mainloc" onclick = "location.href = 'index.jsp?main=layout/main.jsp'">메인페이지</button>

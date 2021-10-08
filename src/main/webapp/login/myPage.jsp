@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8 ">
-<title>Insert title here</title>
+<title>마이페이지</title>
+<link rel="stylesheet" href="css/login.css">
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <style type="text/css">
@@ -15,6 +16,16 @@
 	height: 40px;
 	font-size: 14px;
 	box-sizing: border-box;
+}
+#invalid-mobile{
+	color: red;
+}
+.itme-title{
+	color: rgba(0, 0, 0, 0.87);
+    font-size: 0.875rem;
+    font-weight: 400;
+    font-family: Nanum Gothic,sans-serif,Roboto,Helvetica,Arial;
+    line-height: 1.46429em;
 }
 
 </style>
@@ -26,17 +37,18 @@
 	System.out.println(dto.getEmail());
 %>
 <body>
-  <div class = "inner" style = "height: 800px; width: 580px;" >
+  <div class = "inner" style = "padding-top: 50px;height: 920px; width: 580px;" >
   	<div class = "updateInfo">
 		<br>
-		<form action="#" name = "myPage" method = "post" onsubmit = "return check(this)">
+		<h1><%=dto.getName()%>님의 회원정보</h1><br> 
+		<form action="login/updateAction.jsp" name = "myPage" method = "post" onsubmit = "return check(this)">
 	         <span class="itme-title">아이디*</span><br> 
-	         <input type="text" readonly id="confirmedEmail" value ="<%=dto.getEmail()%>"><br> 
+	         <input type="text" readonly id="confirmedEmail" name = "id"value ="<%=dto.getEmail()%>"><br> 
 	         <input type="hidden" name="email" id="emailInfo">
 	         <br>
 	         <span class="itme-title">닉네임*</span><br> 
 	         <input type="text" id="name-loc" placeholder="중복확인버튼을 클릭해주세요" value ="<%=dto.getName()%>"  name="name" readonly required> 
-	         <button type="button" id="sameNameBtn" class="baseBtn">중복확인</button><br>
+	         <button type="button" id="sameNameBtn" class="baseBtn">중복확인</button><br><br>
 	         
 	         <span class="itme-title">전화번호*</span><br> 
 	         <input type="tel" name="mobile1" value ="<%=dto.getMobile1()%>"   id="mobile1" required> - 
@@ -48,17 +60,20 @@
 	         <input type="text" id="postcode" value ="<%=dto.getPostcode()%>" placeholder="우편번호" name="postcode" readonly required>
 	         <button type="button" id="postcodeBtn" class="whiteBtn">우편번호 찾기</button><br>
 	         <input type="text" id="addr1"  value ="<%=dto.getAddr1()%>" name="addr1" readonly placeholder="주소" required /><br>
-	         <input type="text" id="addr2" value ="<%=dto.getAddr2()%>"  name="addr2" placeholder="상세주소입력" required /><br> 
-	         <button type="submit" id="updateBtn" class="baseBtn">수정하기</button> 
+	         <input type="text" id="addr2" value ="<%=dto.getAddr2()%>"  name="addr2" placeholder="상세주소입력" required /><br><br><br> 
+	         <span class="itme-title">수정전 비밀번호 확인*</span><br> 
+	         <input type="text" class = "passc"id="name-loc" placeholder="수정전 비밀번호를 입력해주세요" name="pwc" required readonly> 
+	         <button type="button" id="samePwBtn" class="baseBtn">비밀번호 확인</button><br><br>
+	         <button type="submit" id="updateBtn" class="baseBtn">수정하기</button> <br><br><br>  
          </form>
          
          
-        <!--  <button type="button" id="updatePwBtn" class="baseBtn"dd>비밀번호수정</button><br><br><br>   
-         <button type="button" id="deleteMemberBtn" class="baseBtn">회원탈퇴</button>
-         <div class = "deletConfirm">
+     		 <button type="button" id="updatePwBtn" class="baseBtn"dd>비밀번호수정</button>&nbsp;  
+        	 <button type="button" id="deleteMemberBtn" class="baseBtn">회원탈퇴</button>
+        <!--  <div class = "deletConfirm">
 	         <input type="text" id="deleteMember" placeholder="비밀번호 재입력" required /><br> 
         	 <button type="button" id="deleteMemberBtn" class="baseBtn">탈퇴</button>
-         </div> -->
+         </div>  -->
   	</div>
   </div>
   <script type="text/javascript">
@@ -79,13 +94,16 @@
 	$("#sameNameBtn").click(function () {
 		window.open("login/sameNameCheck2.jsp", "" , "width = 480px, height = 150px, left = 700px, top = 100px");
 	})
+	$("#samePwBtn").click(function () {
+		window.open("login/samePwCheck3.jsp", "" , "width = 480px, height = 150px, left = 700px, top = 100px");
+	})
 	
 	$("#updatePwBtn").click(function () {
-		alert(1)
+		location.href = "index.jsp?main=login/updatePwForm.jsp";
 	})
 	$("#deleteMemberBtn").click(function () {
 		
-		/* window.open("login/deleteMember.jsp", "" , "width = 480px, height = 150px, left = 700px, top = 100px"); */
+		location.href = "index.jsp?main=login/deleteMemberForm.jsp";
 	})
 	function check(info) {
 		
@@ -101,7 +119,13 @@
 			check = false;
 		} else {
 			$("#invalid-mobile").hide();
-		}	
+		}
+		//비밀번호인증 확인
+		let vals = $(".passc").val();
+		if(vals != "인증확인"){
+			alert("비밀번호를 인증해주세요")
+			check = false;
+		}
 		
 		return check;
 	}

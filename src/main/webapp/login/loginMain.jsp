@@ -5,6 +5,7 @@
 <head>
 	<meta charset="UTF-8 ">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/login.css">
 	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 	<!-- <link rel="stylesheet" href="css/login.css"> -->
 	<title>통합가입페이지</title>
