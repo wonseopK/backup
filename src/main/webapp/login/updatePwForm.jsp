@@ -70,7 +70,7 @@
 			
 			var reg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
 
-			var pw = $("#pw1").val();
+			var pw = $("#updatePw").val();
 
 			if(false === reg.test(pw)) {
 				alert("비밀번호를 형식에 맞게 입력해주세요")
