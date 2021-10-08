@@ -10,7 +10,7 @@
 
 
 <body>
-
+ 
 	<div class="hero-wrap"
 		style="background-image: url('images/bg_01.jpg');"
 		data-stellar-background-ratio="0.5">
