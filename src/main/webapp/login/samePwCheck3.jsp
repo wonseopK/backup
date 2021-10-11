@@ -21,7 +21,7 @@
 %>
 	<form action="samePwCheck3.jsp" method = "post" class = "form-inline">
 		<input type = "hidden" name = "key" value = "result">
-		<input type="text" name = "pw" id ="nameCheck" placeholder="비밀번호" required >
+		<input type="password" name = "pw" id ="nameCheck" placeholder="비밀번호" required >
 		<button type = "submit" class = "baseBtn" id = "sameNameCheckBtn" >확인</button>
 	</form> 
 	<%} else {

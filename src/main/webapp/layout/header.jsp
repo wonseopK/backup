@@ -81,7 +81,7 @@
 					</li>
 					<li class="nav-item"><a href="index.jsp?main=blog.jsp" class="nav-link">Event</a></li>
 					<li class="nav-item"><a href="#" class="nav-link">review</a></li>
-					<li class="nav-item"><a href="#" class="nav-link">CustomerService</a></li>
+					<li class="nav-item"><a href="index.jsp?main=service/servicemain.jsp" class="nav-link">CustomerService</a></li>
 				</ul>
 			</div>
 		</div>
