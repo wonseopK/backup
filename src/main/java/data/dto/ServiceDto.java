@@ -17,7 +17,34 @@ public class ServiceDto {
 	private String status;
 	private Timestamp writeday;
 	private String id;
+	//변경
+	private int pos;            
+	private int ref;  
+	private int depth;        
+	public int getPos() {
+		return pos;
+	}
 
+	public void setPos(int pos) {
+		this.pos = pos;
+	}
+
+	public int getDepth() {
+		return depth;
+	}
+
+	public void setDepth(int depth) {
+		this.depth = depth;
+	}
+
+	public int getRef() {
+		return ref;
+	}
+
+	public void setRef(int ref) {
+		this.ref = ref;
+	}
+	/////
 	//생성자
 	public ServiceDto() {}
 
@@ -35,6 +62,24 @@ public class ServiceDto {
 		this.id = id;
 	}
 	
+	
+	//for reply
+	public ServiceDto(String category, String writer, String open, String subject, String contents,
+			String file, Timestamp writeday, String id, int pos, int depth, int ref) {
+		super();
+		this.category = category;
+		this.writer = writer;
+		this.open = open;
+		this.subject = subject;
+		this.contents = contents;
+		this.file = file;
+		this.writeday = writeday;
+		this.id = id;
+		this.pos = pos;
+		this.depth = depth;
+		this.ref = ref;
+	}
+
 	public ServiceDto(String num, String category, String writer, String open, String mobile, String email, String subject,
 			String contents, int views, String file, String status, Timestamp writeday, String id) {
 		super();
@@ -52,11 +97,35 @@ public class ServiceDto {
 		this.writeday = writeday;
 		this.id = id;
 	}
+	//getmethod
+	public ServiceDto(String num, String category, String writer, String open, String mobile, String email,
+			String subject, String contents, int views, String file, String status, Timestamp writeday, String id,
+			int pos, int ref, int depth) {
+		super();
+		this.num = num;
+		this.category = category;
+		this.writer = writer;
+		this.open = open;
+		this.mobile = mobile;
+		this.email = email;
+		this.subject = subject;
+		this.contents = contents;
+		this.views = views;
+		this.file = file;
+		this.status = status;
+		this.writeday = writeday;
+		this.id = id;
+		this.pos = pos;
+		this.ref = ref;
+		this.depth = depth;
+	}
+	
 
 	//setter getter
 	public String getNum() {
 		return num;
 	}
+
 	public void setNum(String num) {
 		this.num = num;
 	}

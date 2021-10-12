@@ -1,3 +1,5 @@
+<%@page import="data.dto.ServiceDto"%>
+<%@page import="data.dao.ServiceDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="data.dto.LoginDto"%>
@@ -45,7 +47,7 @@ body{
     margin: 0 auto;
     margin-top: 120px;
     margin-bottom: 80px;
-    height: 560px;
+    height: 740px;
     position: relative;
     background-color: white;
 }
@@ -144,26 +146,54 @@ body{
 </head>
 <%
 	String myid = (String)session.getAttribute("myid");
-	LoginDao dao = new LoginDao();
-	LoginDto dto = dao.getUserInfo(2, myid);
+	String num = request.getParameter("num");
+	String currentPage=request.getParameter("currentPage");
+	//perpage
+	int perPage = 10;
+	if(request.getParameter("perPage")!=null){
+		perPage = Integer.parseInt(request.getParameter("perPage"));
+	}
+	LoginDao loginDao = new LoginDao();
+	LoginDto loginDto = loginDao.getUserInfo(2, myid);
+	ServiceDao dao = new ServiceDao();
+	ServiceDto dto = dao.getData(num);
+	System.out.println(num + " num출력");
 	
 %>
 <body>
     <div class="inner">
         <div class="container">
             <h1>Q&A</h1>
-            <form action="service/writeAction.jsp" method = "post" enctype="multipart/form-data"  >
+            <form action="service/replayAction.jsp" method = "post" enctype="multipart/form-data"  >
                 <table class="qnaFrm">
+                 <tr>
+                        <td class="subj">카테고리<span class="ast"> * </span></td>
+                        <td>
+                            <input type="text" value = "<%=dto.getCategory()%>"class="getInfo" name = "category" readonly required>
+                        </td>
+                    </tr>
                     <tr>
                         <td class="subj">작성자<span class="ast"> * </span></td>
                         <td>
-                            <input type="text" value = "<%=dto.getName()%>"class="getInfo" name = "writer" readonly required>
+                            <input type="text" value = "<%=loginDto.getName()%>"class="getInfo" name = "writer" readonly required>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td class="subj">공개여부<span class="ast"> * </span></td>
+                        <td>
+                            <label>
+                               <input class = "open" type="radio" name="open" checked value = "yes">공개
+                            </label>
+                            <label>
+                                <input class = "open"  type="radio" name="open" value = "no" >비공개
+                            </label>
+
                         </td>
                     </tr>
                     <tr>
                         <td class="subj">제목<span class="ast"> * </span></td>
                         <td>
-                            <input type="text" name = "subject" class="getInfo subject" placeholder="졔목" required>
+                            <input type="text" name = "subject" value = "답변: <%=dto.getSubject()%>"class="getInfo subject"  readonly>
                         </td>
                     </tr>
                     <tr>
@@ -172,15 +202,29 @@ body{
                             <textarea  name="contents" class="contentfrm" required class = "form-control" ></textarea>
                         </td>
                     </tr>
+                    <tr>
+                        <td class="subj">첨부파일</td>
+                        <td><input type = "file" name = "file" id ="file" onchange = "readUrl(this)"></td>
+                    </tr>
                 </table>
+				 <%-- <input type="hidden" name="nowPage" value="<%=nowPage%>">
+				 <input type="hidden" name="numPerPage" value="<%=numPerPage%>"> --%>
+				 <input type="hidden" name="ref" value="<%=dto.getRef()%>">
+				 <input type="hidden" name="pos" value="<%=dto.getPos()%>">
+				 <input type="hidden" name="depth" value="<%=dto.getDepth()%>">
+				 <input type="hidden" name="mail" value="<%=dto.getEmail()%>">
+				 <input type="hidden" name="mobile" value="<%=dto.getMobile()%>">
+				 <input type="hidden" name="currentPage" value="<%=currentPage%>">
+				 <input type="hidden" name="perPage" value="<%=perPage%>">
                 <div class="btnContainer">
                     <button type = "submit" class="baseBtn write">작성</button>
-                    <button type = "button"  class="baseBtn back"  onclick="location.href = 'index.jsp?main=service/qnalist.jsp'">목록</button>
+                    <button type = "button"  class="baseBtn back"  onclick="location.href = 'index.jsp?main=service/qnalist.jsp?currentPage=<%=currentPage%>&perPage=<%=perPage%>'">목록</button>
                 </div>
             
             </form>
         </div>
     </div>
+    
 	<script>
 		$(".subject").focus();
 		

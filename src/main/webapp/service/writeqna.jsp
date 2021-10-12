@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8 ">
-<title>Insert title here</title>
+<title>CUSTOMERSERVICE</title>
 <!-- 폰트 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -144,6 +144,12 @@ body{
 </head>
 <%
 	String myid = (String)session.getAttribute("myid");
+	String currentPage = request.getParameter("currentPage");
+	//perpage
+	int perPage = 10;
+	if(request.getParameter("perPage")!=null){
+		perPage = Integer.parseInt(request.getParameter("perPage"));
+	}
 	LoginDao dao = new LoginDao();
 	LoginDto dto = dao.getUserInfo(2, myid);
 	
@@ -216,11 +222,12 @@ body{
                 </table>
                 
                 
-               
+				<input type = "hidden" name = "currentPage" value=<%=currentPage%>>
+				<input type = "hidden" name = "perPage" value=<%=perPage%>>
                 <div class="btnContainer">
                     <button type = "submit" class="baseBtn write">작성</button>
                     <button type = "reset"  class="baseBtn rewrite">재작성</button>
-                    <button type = "button"  class="baseBtn back"  onclick="location.href = 'index.jsp?main=service/qnalist.jsp'">목록</button>
+                    <button type = "button"  class="baseBtn back"  onclick="location.href = 'index.jsp?main=service/qnalist.jsp?currentPage=<%=currentPage%>&perPage=<%=perPage%>'">목록</button>
                 </div>
             
             </form>

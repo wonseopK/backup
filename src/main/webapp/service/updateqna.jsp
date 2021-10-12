@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8 ">
-<title>Insert title here</title>
+<title>CUSTOMERSERVICE</title>
 <!-- 폰트 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -144,6 +144,12 @@ body{
 </style>
 </head>
 <%
+	//perpage얻기
+	System.out.println(request.getParameter("perPage")+"per페이지");
+	int perPage = 10;
+	if(request.getParameter("perPage")!=null){
+		perPage = Integer.parseInt(request.getParameter("perPage"));
+	}
 	//페이지 번호 읽기
 	String currentPage = request.getParameter("currentPage");
 	System.out.println(currentPage + "현제페이지");
@@ -159,6 +165,7 @@ body{
             <form action="service/updateAction.jsp" method = "post" enctype="multipart/form-data"  >
            	 	<input type = "hidden" name = "num" value=<%=num%>>
 				<input type = "hidden" name = "currentPage" value=<%=currentPage%>>
+				<input type = "hidden" name = "perPage" value=<%=perPage%>>
                 &nbsp;<span><span class="ast"> * </span>표시는 필수 입력사항입니다.</span>
                 <table class="qnaFrm">
                     <tr>
@@ -206,7 +213,7 @@ body{
                     <tr>
                         <td class="subj">제목<span class="ast"> * </span></td>
                         <td>
-                            <input type="text"  value = "<%=dto.getSubject()%>" name = "subject" class="getInfo subject" placeholder="졔목" required>
+                            <input type="text"  value = "<%=dto.getSubject()%>" name = "subject" class="getInfo subject" placeholder="졔목" >
                         </td>
                     </tr>
                     <tr>
@@ -217,15 +224,8 @@ body{
                     </tr>
                     <tr>
                         <td class="subj">첨부파일</td>
-                        <td><input type = "file" name = "file" id ="file" onchange = "readUrl(this)">
-                        	<!-- <label>
-                               <input class = "keepFile" type="radio" name="keepFile" checked value = "yes" >기존파일유지
-                            </label>
-                            &nbsp;
-                            <label>
-                                <input class = "keepFile"  type="radio" name="keepFile" value = "no" >기존파일삭제
-                            </label> -->
-                        
+                        <td>
+                        	<input type = "file" name = "file" id ="file" onchange = "readUrl(this)">
                         </td>
                     </tr>
                 </table>
@@ -234,7 +234,7 @@ body{
                
                 <div class="btnContainer">
                     <button type = "submit" class="baseBtn update">수정</button>
-                    <button type = "button"  class="baseBtn back"  onclick="location.href = 'index.jsp?main=service/qnalist.jsp'">목록</button>
+                    <button type = "button"  class="baseBtn back"  onclick="location.href = 'index.jsp?main=service/qnalist.jsp?currentPage=<%=currentPage%>&perPage=<%=perPage%>'">목록</button>
                 </div>
             
             </form>

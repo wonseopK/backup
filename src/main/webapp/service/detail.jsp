@@ -119,7 +119,7 @@ body{
 #getFile:hover {
 	cursor: pointer;
 }
-.replay{
+.reply{
 	margin-top: 10px;
 	margin-left: 817px;
 }
@@ -131,10 +131,15 @@ body{
 
 </style>
 
-<%
+<%	
+	String login = (String)session.getAttribute("loginok");
 	String id = (String)session.getAttribute("myid");
 	String num=request.getParameter("num");
 	String currentPage=request.getParameter("currentPage");
+	int perPage = 10;
+	if(request.getParameter("perPage")!=null){
+		perPage = Integer.parseInt(request.getParameter("perPage"));
+	}
 	if(currentPage==null)
 		currentPage="1";
 	//key는 목록에서만 값이 넘어오고 그 이외는 null값
@@ -154,7 +159,7 @@ body{
     <div class="inner">
         <div class="container">
             <h1>Q&A</h1>
-            <button class="baseBtn replay" onclick = "location.href = './index.jsp?main=service/replyForm.jsp'">답글</button>
+            <button class="baseBtn reply" onclick = "location.href = './index.jsp?main=service/replyForm.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage%>&perPage=<%=perPage%>'">답글</button>
             <table class="detail">
                 <tr>
                     <td class="col1 ">제목</td>
@@ -192,37 +197,46 @@ body{
             <div class="btnContainer">
                 <button class="baseBtn update">수정</button>
                 <button class="baseBtn delete">삭제</button>
-                <button class="baseBtn back" onclick="location.href = 'index.jsp?main=service/qnalist.jsp'">목록</button>
+                <button class="baseBtn back" onclick="location.href = 'index.jsp?main=service/qnalist.jsp?currentPage=<%=currentPage%>&perPage=<%=perPage%>'">목록</button>
             </div>
         </div>
     </div>
 	<script>
 		$(".update").hide();
 		$(".delete").hide();
-	
+		$(".reply").hide();
+		
 		//if loginId = writeId show update, delete button
 		if('<%=id%>' === '<%=dto.getId()%>' || '<%=id%>' === "master"){
 			$(".update").show();
 			$(".delete").show();
+			
+		}
+		//로그인시만 답글버튼보이기
+		if('<%=login%>' === 'yes' || '<%=id%>' === "master"){
+			$(".reply").show();
 		}
 		
 		$(".update").click(function () {
-			location.href = "index.jsp?main=service/updateqna.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage%>";
+			location.href = "index.jsp?main=service/updateqna.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage%>&perPage=<%=perPage%>";
 		})
 		$(".delete").click(function () {
 			let num = <%=dto.getNum()%>;
 			let currentPage = <%=currentPage%>;
+			let perPage = <%=perPage%>
 			$.ajax({
 				type : "post",
 				url : "service/deleteAction.jsp",
 				data: {
 					"num": num,
-					"currentPage":currentPage
+					"currentPage":currentPage,
+					"perPage" : perPage
+					
 				},
 				success : function() {
 					//move page
 					alert("삭제완료")
-					location.href = "index.jsp?main=service/qnalist.jsp?currentPage="+currentPage;
+					location.href = "index.jsp?main=service/qnalist.jsp?currentPage=<%=currentPage%>&perPage=<%=perPage%>";
 					
 				},
 				error:function(request,status,error){

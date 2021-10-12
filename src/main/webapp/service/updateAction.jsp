@@ -18,7 +18,11 @@
 		//(주의)request 가 아닌 multi 변수로 모든 폼데이터를 읽어야한다
 		String num = multi.getParameter("num");
 		String currentPage = multi.getParameter("currentPage");
-		
+		//perpage
+		int perPage = 10;
+		if(multi.getParameter("perPage")!=null){
+			perPage = Integer.parseInt(multi.getParameter("perPage"));
+		}
 		//최종 저장할 파일
 		String file = "";
 		//기존 파일이름
@@ -78,7 +82,7 @@
 		//update
 		dao.updateDetailInfo(dto); 
 		//방명록으로 이동 (수정했던 페이지로 이동)
-		String path = "../index.jsp?main=service/qnalist.jsp?currentPage="+currentPage;
+		String path = "../index.jsp?main=service/qnalist.jsp?currentPage="+currentPage+"&perPage="+perPage;
 		response.sendRedirect(path);
 	} catch (Exception e){
 		System.out.println("업로드오류:" + e.getMessage());
